@@ -49,7 +49,7 @@ class ViewController: UIViewController {
                 captureSession!.addOutput(stillImageOutput)
                 
                 previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
-                previewLayer!.videoGravity = AVLayerVideoGravityResizeAspect
+                previewLayer!.videoGravity = AVLayerVideoGravityResizeAspectFill
                 previewLayer!.connection?.videoOrientation = AVCaptureVideoOrientation.Portrait
                 previewView.layer.addSublayer(previewLayer!)
                 

@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="14F1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -18,17 +19,17 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="auY-gV-MrQ">
-                                <rect key="frame" x="1" y="286" width="600" height="237"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </imageView>
                             <view contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="epI-cg-NEv">
-                                <rect key="frame" x="1" y="28" width="600" height="238"/>
-                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <rect key="frame" x="0.0" y="20" width="600" height="120"/>
+                                <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9iD-u0-eCd">
-                                <rect key="frame" x="251" y="550" width="99" height="30"/>
+                                <rect key="frame" x="0.0" y="570" width="600" height="30"/>
                                 <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="99" id="oWL-wy-871"/>
+                                    <constraint firstAttribute="height" constant="30" id="KZD-Yf-e6o"/>
                                 </constraints>
                                 <state key="normal" title="Take Photo">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -41,17 +42,19 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="centerX" secondItem="auY-gV-MrQ" secondAttribute="centerX" constant="-0.5" id="22Z-J7-rjh"/>
-                            <constraint firstAttribute="centerX" secondItem="epI-cg-NEv" secondAttribute="centerX" constant="-0.5" id="2rX-Ez-Lev"/>
-                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="9iD-u0-eCd" secondAttribute="bottom" constant="20" id="Hq6-Ro-UqF"/>
-                            <constraint firstItem="9iD-u0-eCd" firstAttribute="top" secondItem="auY-gV-MrQ" secondAttribute="bottom" constant="27" id="I1p-jq-1OE"/>
-                            <constraint firstItem="epI-cg-NEv" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="8" id="L69-4k-T9q"/>
-                            <constraint firstAttribute="centerX" secondItem="9iD-u0-eCd" secondAttribute="centerX" id="R8q-2P-WlC"/>
-                            <constraint firstItem="auY-gV-MrQ" firstAttribute="width" secondItem="kh9-bI-dsS" secondAttribute="width" id="TPd-vK-ce0"/>
-                            <constraint firstItem="auY-gV-MrQ" firstAttribute="top" secondItem="epI-cg-NEv" secondAttribute="bottom" constant="20" id="YeX-sI-U8R"/>
-                            <constraint firstItem="auY-gV-MrQ" firstAttribute="width" secondItem="epI-cg-NEv" secondAttribute="width" id="hp2-gT-aKM"/>
-                            <constraint firstItem="epI-cg-NEv" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="8" id="lW8-o8-QAn"/>
-                            <constraint firstItem="auY-gV-MrQ" firstAttribute="height" secondItem="epI-cg-NEv" secondAttribute="height" id="nul-H3-A4x"/>
+                            <constraint firstItem="9iD-u0-eCd" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="54z-wk-a50"/>
+                            <constraint firstItem="auY-gV-MrQ" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="top" id="80O-zL-bxU"/>
+                            <constraint firstItem="9iD-u0-eCd" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="9x7-W4-7l2"/>
+                            <constraint firstItem="auY-gV-MrQ" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="HGX-Vf-GwX"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="9iD-u0-eCd" secondAttribute="bottom" id="LvZ-xg-ded"/>
+                            <constraint firstItem="epI-cg-NEv" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="top" constant="20" id="Ofe-hE-d8Y"/>
+                            <constraint firstAttribute="bottom" secondItem="auY-gV-MrQ" secondAttribute="bottom" id="QTA-2i-IzB"/>
+                            <constraint firstAttribute="trailing" secondItem="epI-cg-NEv" secondAttribute="trailing" id="aV7-zy-jK1"/>
+                            <constraint firstItem="epI-cg-NEv" firstAttribute="height" secondItem="kh9-bI-dsS" secondAttribute="height" multiplier="0.2" id="dZv-eS-gXY"/>
+                            <constraint firstAttribute="trailing" secondItem="auY-gV-MrQ" secondAttribute="trailing" id="eyC-bh-3zV"/>
+                            <constraint firstAttribute="trailing" secondItem="9iD-u0-eCd" secondAttribute="trailing" id="iyB-Gx-HbS"/>
+                            <constraint firstItem="epI-cg-NEv" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="qMZ-86-YrY"/>
+                            <constraint firstItem="auY-gV-MrQ" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="sh3-YV-Ayj"/>
                         </constraints>
                     </view>
                     <connections>
