@@ -12,6 +12,7 @@
 		46FF4EC21A72DA0300350F09 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 46FF4EC01A72DA0300350F09 /* Main.storyboard */; };
 		46FF4EC41A72DA0300350F09 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 46FF4EC31A72DA0300350F09 /* Images.xcassets */; };
 		46FF4EC71A72DA0300350F09 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 46FF4EC51A72DA0300350F09 /* LaunchScreen.xib */; };
+		E07DBBBED9E8CAF7F608838F /* Pods_PhotoPicker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE15B8FF753E58AABF13466A /* Pods_PhotoPicker.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,9 @@
 		46FF4EC11A72DA0300350F09 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		46FF4EC31A72DA0300350F09 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		46FF4EC61A72DA0300350F09 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		69D7C7D3B06690B12318887C /* Pods-PhotoPicker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PhotoPicker.release.xcconfig"; path = "Pods/Target Support Files/Pods-PhotoPicker/Pods-PhotoPicker.release.xcconfig"; sourceTree = "<group>"; };
+		BE15B8FF753E58AABF13466A /* Pods_PhotoPicker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PhotoPicker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E5B68B827C6D76DF9EC44E2A /* Pods-PhotoPicker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PhotoPicker.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PhotoPicker/Pods-PhotoPicker.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +33,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E07DBBBED9E8CAF7F608838F /* Pods_PhotoPicker.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,6 +45,8 @@
 			children = (
 				46FF4EB91A72DA0300350F09 /* PhotoPicker */,
 				46FF4EB81A72DA0300350F09 /* Products */,
+				EDEFB63C1F36E1F846612D38 /* Pods */,
+				F499E745F674C681616C4CD8 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -72,6 +79,23 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		EDEFB63C1F36E1F846612D38 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E5B68B827C6D76DF9EC44E2A /* Pods-PhotoPicker.debug.xcconfig */,
+				69D7C7D3B06690B12318887C /* Pods-PhotoPicker.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		F499E745F674C681616C4CD8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BE15B8FF753E58AABF13466A /* Pods_PhotoPicker.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -79,9 +103,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 46FF4ED61A72DA0300350F09 /* Build configuration list for PBXNativeTarget "PhotoPicker" */;
 			buildPhases = (
+				031D2F5B50FC45B3FE9D8BFD /* Check Pods Manifest.lock */,
 				46FF4EB31A72DA0300350F09 /* Sources */,
 				46FF4EB41A72DA0300350F09 /* Frameworks */,
 				46FF4EB51A72DA0300350F09 /* Resources */,
+				1AAAA159B66B7A558A0A2A0B /* Embed Pods Frameworks */,
+				65AD6A50F1145A1A0644B439 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -139,6 +166,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		031D2F5B50FC45B3FE9D8BFD /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		1AAAA159B66B7A558A0A2A0B /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PhotoPicker/Pods-PhotoPicker-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		65AD6A50F1145A1A0644B439 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PhotoPicker/Pods-PhotoPicker-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		46FF4EB31A72DA0300350F09 /* Sources */ = {
@@ -251,6 +326,7 @@
 		};
 		46FF4ED71A72DA0300350F09 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E5B68B827C6D76DF9EC44E2A /* Pods-PhotoPicker.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -264,6 +340,7 @@
 		};
 		46FF4ED81A72DA0300350F09 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 69D7C7D3B06690B12318887C /* Pods-PhotoPicker.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
