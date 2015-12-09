@@ -40,7 +40,7 @@
                                     <action selector="didPressTakePhoto:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="WD2-u3-xGc"/>
                                 </connections>
                             </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Waiting for images..." textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="vjM-86-fDg">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Waiting for images..." textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="vjM-86-fDg">
                                 <rect key="frame" x="0.0" y="270" width="600" height="250"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
