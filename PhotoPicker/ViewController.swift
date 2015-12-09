@@ -65,7 +65,10 @@ class ViewController: UIViewController {
     }
 
     @IBAction func didPressTakePhoto(sender: UIButton) {
-        
+        let previewWidth = previewLayer?.bounds.width
+        print(previewWidth)
+        let previewHeight = previewLayer?.bounds.height
+        print(previewHeight)
         if let videoConnection = stillImageOutput!.connectionWithMediaType(AVMediaTypeVideo) {
             videoConnection.videoOrientation = AVCaptureVideoOrientation.Portrait
             stillImageOutput?.captureStillImageAsynchronouslyFromConnection(videoConnection, completionHandler: {(sampleBuffer, error) in
@@ -75,7 +78,23 @@ class ViewController: UIViewController {
                     let cgImageRef = CGImageCreateWithJPEGDataProvider(dataProvider, nil, true, CGColorRenderingIntent.RenderingIntentDefault)
                     
                     let image = UIImage(CGImage: cgImageRef!, scale: 1.0, orientation: UIImageOrientation.Right)
-                    self.capturedImage.image = image
+                    
+                    let imageWidth = image.size.width
+                    print(imageWidth)
+                    let imageHeight = image.size.height
+                    print (imageHeight)
+                    
+                    // Calculate desired height. We want the whole width
+                    let desiredHeight = (imageWidth / previewWidth!) * previewHeight!
+                    print(desiredHeight)
+                    let shiftDown = (imageHeight - desiredHeight) / 2
+                    print(shiftDown)
+                    
+                    let rect: CGRect = CGRectMake(shiftDown, 0.0, desiredHeight, imageWidth)
+                    let imageRef: CGImageRef = CGImageCreateWithImageInRect(image.CGImage, rect)!
+                    let image2: UIImage = UIImage(CGImage: imageRef, scale: image.scale, orientation: image.imageOrientation)
+                    
+                    self.capturedImage.image = image2
                 }
             })
         }
