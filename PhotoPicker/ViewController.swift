@@ -8,8 +8,9 @@
 
 import UIKit
 import AVFoundation
+import TesseractOCR
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, G8TesseractDelegate {
 
     @IBOutlet weak var previewView: UIView!
     @IBOutlet weak var capturedImage: UIImageView!
@@ -93,8 +94,23 @@ class ViewController: UIViewController {
                     let rect: CGRect = CGRectMake(shiftDown, 0.0, desiredHeight, imageWidth)
                     let imageRef: CGImageRef = CGImageCreateWithImageInRect(image.CGImage, rect)!
                     let image2: UIImage = UIImage(CGImage: imageRef, scale: image.scale, orientation: image.imageOrientation)
+                    print(image.imageOrientation.rawValue)
                     
                     self.capturedImage.image = image2
+                    
+                    // Tesseract things image2 is upside down.
+                    let image3: UIImage = UIImage(CGImage: imageRef, scale: image.scale, orientation: UIImageOrientation.Left)
+                    
+                    
+                    let tesseract:G8Tesseract = G8Tesseract(language:"eng")
+                    //tesseract.language = "eng+ita"
+                    tesseract.delegate = self
+                    //tesseract.charWhitelist = "01234567890"
+                    tesseract.image = image3
+                    tesseract.recognize()
+                    
+                    NSLog("%@", tesseract.recognizedText)
+                    print(tesseract.recognizedText)
                 }
             })
         }
@@ -102,6 +118,10 @@ class ViewController: UIViewController {
     
     @IBAction func didPressTakeAnother(sender: AnyObject) {
         captureSession!.startRunning()
+    }
+    
+    func shouldCancelImageRecognitionForTesseract(tesseract: G8Tesseract!) -> Bool {
+        return false; // return true if you need to interrupt tesseract before it finishes
     }
 
 
