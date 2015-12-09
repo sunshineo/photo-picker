@@ -13,6 +13,7 @@
 		46FF4EC41A72DA0300350F09 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 46FF4EC31A72DA0300350F09 /* Images.xcassets */; };
 		46FF4EC71A72DA0300350F09 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 46FF4EC51A72DA0300350F09 /* LaunchScreen.xib */; };
 		E07DBBBED9E8CAF7F608838F /* Pods_PhotoPicker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE15B8FF753E58AABF13466A /* Pods_PhotoPicker.framework */; };
+		F85BCE3E1C17E66200104C7F /* tessdata in Resources */ = {isa = PBXBuildFile; fileRef = F85BCE3D1C17E66200104C7F /* tessdata */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		69D7C7D3B06690B12318887C /* Pods-PhotoPicker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PhotoPicker.release.xcconfig"; path = "Pods/Target Support Files/Pods-PhotoPicker/Pods-PhotoPicker.release.xcconfig"; sourceTree = "<group>"; };
 		BE15B8FF753E58AABF13466A /* Pods_PhotoPicker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PhotoPicker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5B68B827C6D76DF9EC44E2A /* Pods-PhotoPicker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PhotoPicker.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PhotoPicker/Pods-PhotoPicker.debug.xcconfig"; sourceTree = "<group>"; };
+		F85BCE3D1C17E66200104C7F /* tessdata */ = {isa = PBXFileReference; lastKnownFileType = folder; path = tessdata; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +63,7 @@
 		46FF4EB91A72DA0300350F09 /* PhotoPicker */ = {
 			isa = PBXGroup;
 			children = (
+				F85BCE3D1C17E66200104C7F /* tessdata */,
 				46FF4EBC1A72DA0300350F09 /* AppDelegate.swift */,
 				46FF4EBE1A72DA0300350F09 /* ViewController.swift */,
 				46FF4EC01A72DA0300350F09 /* Main.storyboard */,
@@ -160,6 +163,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				46FF4EC21A72DA0300350F09 /* Main.storyboard in Resources */,
+				F85BCE3E1C17E66200104C7F /* tessdata in Resources */,
 				46FF4EC71A72DA0300350F09 /* LaunchScreen.xib in Resources */,
 				46FF4EC41A72DA0300350F09 /* Images.xcassets in Resources */,
 			);
