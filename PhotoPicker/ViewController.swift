@@ -14,6 +14,7 @@ class ViewController: UIViewController, G8TesseractDelegate {
 
     @IBOutlet weak var previewView: UIView!
     @IBOutlet weak var capturedImage: UIImageView!
+    @IBOutlet weak var ocrResult: UITextView!
     
     var captureSession: AVCaptureSession?
     var stillImageOutput: AVCaptureStillImageOutput?
@@ -111,6 +112,7 @@ class ViewController: UIViewController, G8TesseractDelegate {
                     
                     NSLog("%@", tesseract.recognizedText)
                     print(tesseract.recognizedText)
+                    self.ocrResult.text = tesseract.recognizedText
                 }
             })
         }
