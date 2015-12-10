@@ -35,7 +35,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="90"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ugc-ZU-W2J">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ugc-ZU-W2J">
                                                     <rect key="frame" x="0.0" y="0.0" width="600" height="100"/>
                                                 </imageView>
                                             </subviews>
@@ -93,10 +93,10 @@
             </objects>
             <point key="canvasLocation" x="859" y="-291"/>
         </scene>
-        <!--View Controller-->
+        <!--Dish Details View Controller-->
         <scene sceneID="Cpn-ny-fXY">
             <objects>
-                <viewController id="ptV-rZ-R0c" sceneMemberID="viewController">
+                <viewController id="ptV-rZ-R0c" customClass="DishDetailsViewController" customModule="PhotoPicker" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="fbf-is-RaY"/>
                         <viewControllerLayoutGuide type="bottom" id="kJU-6i-5BU"/>
@@ -104,8 +104,29 @@
                     <view key="view" contentMode="scaleToFill" id="Rxs-ht-fVp">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SNH-Ye-yyU">
+                                <rect key="frame" x="0.0" y="64" width="600" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="x7O-nz-Lqv"/>
+                                </constraints>
+                            </imageView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="l9e-QQ-atu">
+                                <rect key="frame" x="9" y="197" width="268" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="SNH-Ye-yyU" firstAttribute="width" secondItem="Rxs-ht-fVp" secondAttribute="width" id="cYY-RI-clK"/>
+                            <constraint firstItem="SNH-Ye-yyU" firstAttribute="top" secondItem="fbf-is-RaY" secondAttribute="bottom" id="vNN-JM-GZw"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="imageView" destination="SNH-Ye-yyU" id="isc-pS-fIz"/>
+                        <outlet property="ocrResult" destination="l9e-QQ-atu" id="M1D-ry-Qqk"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zUv-c5-ia5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

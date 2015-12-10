@@ -8,9 +8,8 @@
 
 import UIKit
 import AVFoundation
-import TesseractOCR
 
-class ViewController: UIViewController, G8TesseractDelegate, UITableViewDataSource, UITableViewDelegate {
+class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     @IBOutlet weak var previewView: UIView!
     @IBOutlet weak var tableView: UITableView!
@@ -105,21 +104,6 @@ class ViewController: UIViewController, G8TesseractDelegate, UITableViewDataSour
                         self.tableView?.reloadData()
                     })
                     
-                    /*
-                    // Tesseract things image2 is upside down.
-                    let image3: UIImage = UIImage(CGImage: imageRef, scale: image.scale, orientation: UIImageOrientation.Left)
-                    
-                    
-                    let tesseract:G8Tesseract = G8Tesseract(language:"eng")
-                    //tesseract.language = "eng+ita"
-                    tesseract.delegate = self
-                    //tesseract.charWhitelist = "01234567890"
-                    tesseract.image = image3
-                    tesseract.recognize()
-                    
-                    NSLog("%@", tesseract.recognizedText)
-                    print(tesseract.recognizedText)
-                    */
                 }
             })
         }
@@ -128,10 +112,7 @@ class ViewController: UIViewController, G8TesseractDelegate, UITableViewDataSour
     @IBAction func didPressTakeAnother(sender: AnyObject) {
         captureSession!.startRunning()
     }
-    
-    func shouldCancelImageRecognitionForTesseract(tesseract: G8Tesseract!) -> Bool {
-        return false; // return true if you need to interrupt tesseract before it finishes
-    }
+
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.images.count
@@ -159,7 +140,10 @@ class ViewController: UIViewController, G8TesseractDelegate, UITableViewDataSour
     
     override func prepareForSegue(segue:(UIStoryboardSegue!), sender:AnyObject!) {
         if (segue.identifier == "viewDish") {
-            print("here")
+            let indexPath:NSIndexPath = self.tableView.indexPathForSelectedRow!
+            let image:UIImage = self.images[indexPath.row] as! UIImage
+            let dishDetailsController = segue.destinationViewController as! DishDetailsViewController
+            dishDetailsController.image = image
         }
     }
 
