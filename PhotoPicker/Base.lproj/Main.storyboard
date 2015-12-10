@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="14F1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="14F1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
@@ -22,9 +22,6 @@
                                 <rect key="frame" x="0.0" y="20" width="600" height="90"/>
                                 <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="auY-gV-MrQ">
-                                <rect key="frame" x="0.0" y="110" width="600" height="160"/>
-                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9iD-u0-eCd">
                                 <rect key="frame" x="0.0" y="520" width="600" height="80"/>
                                 <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -40,40 +37,20 @@
                                     <action selector="didPressTakePhoto:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="WD2-u3-xGc"/>
                                 </connections>
                             </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Waiting for images..." textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="vjM-86-fDg">
-                                <rect key="frame" x="0.0" y="270" width="600" height="250"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="250" id="51Z-QH-yRJ"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="9iD-u0-eCd" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="54z-wk-a50"/>
                             <constraint firstItem="9iD-u0-eCd" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="9x7-W4-7l2"/>
-                            <constraint firstAttribute="trailing" secondItem="vjM-86-fDg" secondAttribute="trailing" id="EUr-rU-7js"/>
-                            <constraint firstItem="9iD-u0-eCd" firstAttribute="top" secondItem="vjM-86-fDg" secondAttribute="bottom" id="FHi-cO-jce"/>
-                            <constraint firstItem="auY-gV-MrQ" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="HGX-Vf-GwX"/>
-                            <constraint firstItem="vjM-86-fDg" firstAttribute="top" secondItem="auY-gV-MrQ" secondAttribute="bottom" id="Jw3-4S-VZD"/>
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="9iD-u0-eCd" secondAttribute="bottom" id="LvZ-xg-ded"/>
-                            <constraint firstItem="auY-gV-MrQ" firstAttribute="top" secondItem="epI-cg-NEv" secondAttribute="bottom" id="MGe-QP-aQx"/>
-                            <constraint firstItem="vjM-86-fDg" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="NQx-L8-w5A"/>
                             <constraint firstItem="epI-cg-NEv" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="top" constant="20" id="Ofe-hE-d8Y"/>
-                            <constraint firstItem="vjM-86-fDg" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="XVK-Nw-mbM"/>
                             <constraint firstAttribute="trailing" secondItem="epI-cg-NEv" secondAttribute="trailing" id="aV7-zy-jK1"/>
                             <constraint firstItem="epI-cg-NEv" firstAttribute="height" secondItem="kh9-bI-dsS" secondAttribute="height" multiplier="0.15" id="dZv-eS-gXY"/>
-                            <constraint firstAttribute="trailing" secondItem="auY-gV-MrQ" secondAttribute="trailing" id="gGK-75-DBx"/>
                             <constraint firstAttribute="trailing" secondItem="9iD-u0-eCd" secondAttribute="trailing" id="iyB-Gx-HbS"/>
                             <constraint firstItem="epI-cg-NEv" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="qMZ-86-YrY"/>
-                            <constraint firstItem="auY-gV-MrQ" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="yNK-Jr-695"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="capturedImage" destination="auY-gV-MrQ" id="P7B-FJ-zjs"/>
-                        <outlet property="ocrResult" destination="vjM-86-fDg" id="R9K-1I-feK"/>
                         <outlet property="previewView" destination="epI-cg-NEv" id="aVZ-TC-13m"/>
                     </connections>
                 </viewController>

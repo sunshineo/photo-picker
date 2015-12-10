@@ -13,8 +13,6 @@ import TesseractOCR
 class ViewController: UIViewController, G8TesseractDelegate {
 
     @IBOutlet weak var previewView: UIView!
-    @IBOutlet weak var capturedImage: UIImageView!
-    @IBOutlet weak var ocrResult: UITextView!
     
     var captureSession: AVCaptureSession?
     var stillImageOutput: AVCaptureStillImageOutput?
@@ -96,8 +94,7 @@ class ViewController: UIViewController, G8TesseractDelegate {
                     let imageRef: CGImageRef = CGImageCreateWithImageInRect(image.CGImage, rect)!
                     let image2: UIImage = UIImage(CGImage: imageRef, scale: image.scale, orientation: image.imageOrientation)
                     print(image.imageOrientation.rawValue)
-                    
-                    self.capturedImage.image = image2
+
                     
                     // Tesseract things image2 is upside down.
                     let image3: UIImage = UIImage(CGImage: imageRef, scale: image.scale, orientation: UIImageOrientation.Left)
@@ -112,7 +109,6 @@ class ViewController: UIViewController, G8TesseractDelegate {
                     
                     NSLog("%@", tesseract.recognizedText)
                     print(tesseract.recognizedText)
-                    self.ocrResult.text = tesseract.recognizedText
                 }
             })
         }
