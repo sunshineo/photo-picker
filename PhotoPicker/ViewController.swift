@@ -156,6 +156,12 @@ class ViewController: UIViewController, G8TesseractDelegate, UITableViewDataSour
             })
         }
     }
+    
+    override func prepareForSegue(segue:(UIStoryboardSegue!), sender:AnyObject!) {
+        if (segue.identifier == "viewDish") {
+            print("here")
+        }
+    }
 
 }
 
