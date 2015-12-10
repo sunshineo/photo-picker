@@ -138,10 +138,23 @@ class ViewController: UIViewController, G8TesseractDelegate, UITableViewDataSour
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        print("here here")
         let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath)
         cell.imageView!.image = images[indexPath.row] as! UIImage
         return cell
+    }
+    
+    func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        if (editingStyle == UITableViewCellEditingStyle.Delete) {
+            // handle delete (by removing the data from your array and updating the tableview)
+            self.images.removeObjectAtIndex(indexPath.row)
+            dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                self.tableView?.reloadData()
+            })
+        }
     }
 
 }
