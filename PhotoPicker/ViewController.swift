@@ -10,13 +10,16 @@ import UIKit
 import AVFoundation
 import TesseractOCR
 
-class ViewController: UIViewController, G8TesseractDelegate {
+class ViewController: UIViewController, G8TesseractDelegate, UITableViewDataSource, UITableViewDelegate {
 
     @IBOutlet weak var previewView: UIView!
+    @IBOutlet weak var tableView: UITableView!
     
     var captureSession: AVCaptureSession?
     var stillImageOutput: AVCaptureStillImageOutput?
     var previewLayer: AVCaptureVideoPreviewLayer?
+    
+    var images = NSMutableArray()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,6 +28,9 @@ class ViewController: UIViewController, G8TesseractDelegate {
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
+        
+        self.tableView?.dataSource = self
+        self.tableView?.delegate = self
         
         captureSession = AVCaptureSession()
         captureSession!.sessionPreset = AVCaptureSessionPresetPhoto
@@ -94,8 +100,12 @@ class ViewController: UIViewController, G8TesseractDelegate {
                     let imageRef: CGImageRef = CGImageCreateWithImageInRect(image.CGImage, rect)!
                     let image2: UIImage = UIImage(CGImage: imageRef, scale: image.scale, orientation: image.imageOrientation)
                     print(image.imageOrientation.rawValue)
-
+                    self.images.addObject(image2)
+                    dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                        self.tableView?.reloadData()
+                    })
                     
+                    /*
                     // Tesseract things image2 is upside down.
                     let image3: UIImage = UIImage(CGImage: imageRef, scale: image.scale, orientation: UIImageOrientation.Left)
                     
@@ -109,6 +119,7 @@ class ViewController: UIViewController, G8TesseractDelegate {
                     
                     NSLog("%@", tesseract.recognizedText)
                     print(tesseract.recognizedText)
+                    */
                 }
             })
         }
@@ -121,7 +132,17 @@ class ViewController: UIViewController, G8TesseractDelegate {
     func shouldCancelImageRecognitionForTesseract(tesseract: G8Tesseract!) -> Bool {
         return false; // return true if you need to interrupt tesseract before it finishes
     }
-
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.images.count
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        print("here here")
+        let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath)
+        cell.imageView!.image = images[indexPath.row] as! UIImage
+        return cell
+    }
 
 }
 
