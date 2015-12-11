@@ -147,5 +147,24 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         }
     }
 
+    @IBAction func startEdit(sender: AnyObject) {
+        self.tableView.editing = !self.tableView.editing
+        if self.tableView.editing {
+            editButton.title = "Done"
+        }
+        else {
+            editButton.title = "Edit"
+        }
+    }
+    
+    func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        return true}
+    func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
+        let itemToMove = images[fromIndexPath.row]
+        images.removeObjectAtIndex(fromIndexPath.row)
+        images.insertObject(itemToMove, atIndex: toIndexPath.row)
+    }
+    
+    @IBOutlet weak var editButton: UIBarButtonItem!
 }
 
